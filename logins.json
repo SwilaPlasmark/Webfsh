@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "username": "1234",
+            "password": "123555",
+            "loggedin": true,
+            "ip": "98.176.101.244"
+        },
+        {
+            "username": "test",
+            "password": "test",
+            "loggedin": true,
+            "ip": "70.179.27.237"
+        },
+        {
+            "username": "213123123",
+            "password": "124124124114",
+            "loggedin": true,
+            "ip": "98.176.101.244"
+        },
+        {
+            "username": "SwilaAdmin",
+            "password": "test",
+            "loggedin": true,
+            "ip": "98.176.101.244"
+        },
+        {
+            "username": "Conner",
+            "password": "123",
+            "loggedin": true,
+            "ip": "72.197.99.239"
+        }
+    ]
+}

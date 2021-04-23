@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create A Chat</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+    <input type='button' onclick="chat()" value="Chat">
+    |
+    <input type='button' onclick="logOut()" value="Log Out">
+    |
+    <input type='button' onclick="CreateChat()" value="Create / Remove Chat">
+    |
+    <a href="/">Sign In</a>
+
+
+    <br>
+    <h1><u>Creation</u></h1>
+
+    <p id="consoleinfo"></p>
+    
+    <script>
+        $.get('https://www.cloudflare.com/cdn-cgi/trace', function (data) {
+            // Convert key-value pairs to JSON
+            // https://stackoverflow.com/a/39284735/452587
+            data = data.trim().split('\n').reduce(function (obj, pair) {
+                pair = pair.split('=');
+                return obj[pair[0]] = pair[1], obj;
+            }, {});
+            console.log(data);
+
+            var Ipdata = JSON.stringify(data);
+
+            console.log(Ipdata);
+
+
+            document.getElementById("consoleinfo").innerHTML += Ipdata;
+        });
+        function chat(){
+            var location = window.location.href.split('/')
+            window.location.href = location[0] + 'Chat?name=' + sessionStorage.name
+        }
+        function logOut(){
+        $.post("/logout", {name: sessionStorage.name}, successLO)
+        }
+        function successLO(){
+            var location = window.location.href.split('/')
+            window.location.href = location[0]
+        }
+        function CreateChat(){
+            $.get("/CreateChat", {name: sessionStorage.name}, successCC)
+        }
+        function successCC(){
+            var location = window.location.href.split('/')
+            window.location.href = location[0] + 'CreateChat?name=' + sessionStorage.name
+        }
+    </script>
+
+</body>
+</html>

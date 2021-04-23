@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create A Chat</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+    <a href="/">Sign In</a>
+    |
+    <a href="/Chat">Chat</a>
+    |
+    <a href="/CreateChat">Create Chat</a>
+
+
+    <br>
+    <h1><u>Creation</u></h1>
+
+    <p>id='consoleinfo'</p>
+
+
+    <script>
+        let express = require('express');
+        let path = require("path");
+        var bodyParser = require('body-parser');   //new Need to add for post
+        var routes = require("./routes");
+        var blacklist = require("express-blacklist");
+        var address = require('address');
+        var info = require("./InfoContainer");
+        let app = express();
+        app.get('https://www.cloudflare.com/cdn-cgi/trace', function (data) {
+            // Convert key-value pairs to JSON
+            // https://stackoverflow.com/a/39284735/452587
+            data = data.trim().split('\n').reduce(function (obj, pair) {
+                pair = pair.split('=');
+                return obj[pair[0]] = pair[1], obj;
+            }, {});
+            console.log(data);
+            document.getElementById("consoleinfo").innerHTML = data;
+        });
+    </script>
+
+</body>
+</html>

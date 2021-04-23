@@ -1,0 +1,4 @@
+Enter a message to start chatting
+Nameg
+Here
+PlaceHolderforIP

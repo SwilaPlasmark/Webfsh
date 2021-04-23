@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Thank you to Federico Dossena for the backround scripts! fdossena.com>-->
+    <link rel="stylesheet" href="/style.css">
+    <title>Chat</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="warpspeed.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <div style="position:fixed; z-index:0; top:0; left:0; width:100%; height:100%;">
+        <canvas id="canvas" style="width:100%; height:100%;"></canvas>
+        <script type="text/javascript">new WarpSpeed("canvas", { "speed": 3, "speedAdjFactor": 0.03, "density": 2, "shape": "circle", "warpEffect": true, "warpEffectLength": 0.5, "depthFade": true, "starSize": 3, "backgroundColor": "#032343", "starColor": "#1ef6c1" });</script>
+    </div>
+    <div style="position:fixed; z-index:1; top:0; left:0; width:100%; height:100%; overflow:auto;">
+
+
+
+        <input type='button' onclick="logOut()" value="Log Out">
+        |
+        <input type='button' onclick="CreateChat()" value="Create / Remove Chat">
+        |
+        <a href="/">Sign In</a>
+        |
+        <a href="/Admin">Security</a>
+
+
+
+        <br>
+
+        <h0 class="Title" id="CurChatDisplayName">Global Chat</h0>
+        <text id="nameInput" class="NameText"></text>
+        <h1 class="Title">Webfsh Client</h1>
+        <div contentEditable="false" id="wbutton" class="wbutton"></div>
+
+
+        <!--
+    <input type="button" id="global1" value="Global 1" onclick="ChangeChat(0)">
+    <input type="button" id="global2" value="Global 2" onclick="ChangeChat(1)">
+    <input type="button" id="global3" value="Global 3" onclick="ChangeChat(2)">
+    >-->
+        <div id="Parent" style="position: relative; left: 0px;">
+            <div id="ButtonContainer" class="ButtonContainer">
+                <wbutton onclick="ChangeChat(0)">Global 1</wbutton>
+                <wbutton onclick="ChangeChat(1)">Global 2</wbutton>
+                <wbutton onclick="ChangeChat(2)">Global 3</wbutton>
+            </div>
+            <div contentEditable="false" id="chatBox" class="chatDiv"></div>
+        </div>
+
+        <br><br> <br><br><br><br>
+        <br><br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
+        <br><br>
+
+        <input type="submit" id="sendBut" value="Send">
+        
+    <!--<wbutton onclick="ChangeChat(1)">Global 2</wbutton>-->
+
+
+        <label for="input"> Your Message:</label>
+        <input type="text" id="input">
+
+        <form id="picForm" action="fileupload" method="post" enctype="multipart/form-data">
+            <label>
+                Your Picture:
+                <input id="fileStuff" type="file" name="filetoupload">
+            </label>
+        </form>
+        <input type="button" id="JumpBut" value="Jump to bottom" class="JumpButton">
+        <br>
+        <script src="/ChatHTMLScript.js"></script>
+
+    </div>
+
+</body>
+
+    </html >

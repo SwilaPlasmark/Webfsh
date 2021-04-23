@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Creat A Chat</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="/style.css"> 
+
+</head>
+<body>
+
+  <input type='button' onclick="chat()" value="Chat">
+  |
+  <input type='button' onclick="logOut()" value="Log Out">
+  |
+  <a href="/">Sign In</a>
+    
+
+  <br>
+  <h1><u>Creation</u></h1>
+
+  <label for="input">Chat Name:</label>
+  <input type="text" id="chatName">
+  <br>
+  <br>
+  <input type="button" id="creatBut" value="Create">
+
+  <br>
+  <br>
+  <label for="removeChatName">Chat To Remove Name:</label>
+  <input type="text" id="removeChatName">
+  <br>
+  <br>
+  <input type="button" id="removeBut" value="Remove">
+
+
+     <div id="includedContent"></div>
+
+
+    <script src="/ChatHTMLScript.js"></script>
+
+</body>
+<script>
+  function chat(){
+    var location = window.location.href.split('/')
+    window.location.href = location[0] + 'Chat?name=' + sessionStorage.name
+  }
+  function logOut(){
+    $.post("/logout", {name: sessionStorage.name}, successLO)
+  }
+  function successLO(){
+    var location = window.location.href.split('/')
+    window.location.href = location[0]
+  }
+</script>
+</html>
